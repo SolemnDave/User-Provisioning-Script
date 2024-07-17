@@ -1,6 +1,6 @@
 # Architecture
 
-![User-Provisioning-Script Architecture](src/assets/images/UPS-Arch.png)
+![User-Provisioning-Script Architecture](src/images/UPS-Arch.png)
 
 ## Table of Contents
 
