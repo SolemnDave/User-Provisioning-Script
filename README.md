@@ -1,6 +1,6 @@
 # Architecture
 
-![User-Provisioning-Script Architecture](/src/UPS-Arch.png)
+<img src="/src/UPS-Arch.png" alt="User-Provisioning-Script Architecture" width="600"/>
 
 ## Table of Contents
 
@@ -94,8 +94,4 @@ The User Provisioning Script is an automated solution developed using the AWS CD
 
   ```bash
   cdk deploy
-  ```
-
-  ```
-
   ```
