@@ -1,0 +1,550 @@
+{
+ "Resources": {
+  "CloudAdminGroup96F59727": {
+   "Type": "AWS::IAM::Group",
+   "Properties": {
+    "GroupName": "CloudAdminGroup"
+   },
+   "Metadata": {
+    "aws:cdk:path": "UserProvisioningStack/CloudAdminGroup/Resource"
+   }
+  },
+  "CloudAdminGroupDefaultPolicy22046245": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "Groups": [
+     {
+      "Ref": "CloudAdminGroup96F59727"
+     }
+    ],
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "ec2:*",
+        "s3:*",
+        "iam:*",
+        "rds:*",
+        "cloudwatch:*"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "CloudAdminGroupDefaultPolicy22046245"
+   },
+   "Metadata": {
+    "aws:cdk:path": "UserProvisioningStack/CloudAdminGroup/DefaultPolicy/Resource"
+   }
+  },
+  "DevOpsGroupCE482E01": {
+   "Type": "AWS::IAM::Group",
+   "Properties": {
+    "GroupName": "DevOpsGroup"
+   },
+   "Metadata": {
+    "aws:cdk:path": "UserProvisioningStack/DevOpsGroup/Resource"
+   }
+  },
+  "DevOpsGroupDefaultPolicy203FA9DA": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "Groups": [
+     {
+      "Ref": "DevOpsGroupCE482E01"
+     }
+    ],
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "codepipeline:*",
+        "codebuild:*",
+        "ecs:*",
+        "cloudformation:*",
+        "cloudwatch:*"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "DevOpsGroupDefaultPolicy203FA9DA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "UserProvisioningStack/DevOpsGroup/DefaultPolicy/Resource"
+   }
+  },
+  "SolutionsArchitectGroup5790B83D": {
+   "Type": "AWS::IAM::Group",
+   "Properties": {
+    "GroupName": "SolutionsArchitectGroup"
+   },
+   "Metadata": {
+    "aws:cdk:path": "UserProvisioningStack/SolutionsArchitectGroup/Resource"
+   }
+  },
+  "SolutionsArchitectGroupDefaultPolicy14BFC438": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "Groups": [
+     {
+      "Ref": "SolutionsArchitectGroup5790B83D"
+     }
+    ],
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "ec2:*",
+        "s3:*",
+        "rds:*",
+        "cloudfront:*",
+        "lambda:*"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "SolutionsArchitectGroupDefaultPolicy14BFC438"
+   },
+   "Metadata": {
+    "aws:cdk:path": "UserProvisioningStack/SolutionsArchitectGroup/DefaultPolicy/Resource"
+   }
+  },
+  "SecurityEngineerGroup2BF06CE0": {
+   "Type": "AWS::IAM::Group",
+   "Properties": {
+    "GroupName": "SecurityEngineerGroup"
+   },
+   "Metadata": {
+    "aws:cdk:path": "UserProvisioningStack/SecurityEngineerGroup/Resource"
+   }
+  },
+  "SecurityEngineerGroupDefaultPolicy62BC03D4": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "Groups": [
+     {
+      "Ref": "SecurityEngineerGroup2BF06CE0"
+     }
+    ],
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "iam:*",
+        "cloudtrail:*",
+        "guardduty:*",
+        "config:*",
+        "kms:*"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "SecurityEngineerGroupDefaultPolicy62BC03D4"
+   },
+   "Metadata": {
+    "aws:cdk:path": "UserProvisioningStack/SecurityEngineerGroup/DefaultPolicy/Resource"
+   }
+  },
+  "DavidAF9B4FCF": {
+   "Type": "AWS::IAM::User",
+   "Properties": {
+    "Groups": [
+     {
+      "Ref": "CloudAdminGroup96F59727"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "Department",
+      "Value": "Cloud Team"
+     }
+    ],
+    "UserName": "David"
+   },
+   "Metadata": {
+    "aws:cdk:path": "UserProvisioningStack/David/Resource"
+   }
+  },
+  "DavidMFADevice": {
+   "Type": "AWS::IAM::VirtualMFADevice",
+   "Properties": {
+    "Users": [
+     {
+      "Ref": "DavidAF9B4FCF"
+     }
+    ],
+    "VirtualMfaDeviceName": "DavidMFA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "UserProvisioningStack/DavidMFADevice"
+   }
+  },
+  "Chris151D0CEB": {
+   "Type": "AWS::IAM::User",
+   "Properties": {
+    "Groups": [
+     {
+      "Ref": "DevOpsGroupCE482E01"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "Department",
+      "Value": "Cloud Team"
+     }
+    ],
+    "UserName": "Chris"
+   },
+   "Metadata": {
+    "aws:cdk:path": "UserProvisioningStack/Chris/Resource"
+   }
+  },
+  "ChrisMFADevice": {
+   "Type": "AWS::IAM::VirtualMFADevice",
+   "Properties": {
+    "Users": [
+     {
+      "Ref": "Chris151D0CEB"
+     }
+    ],
+    "VirtualMfaDeviceName": "ChrisMFA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "UserProvisioningStack/ChrisMFADevice"
+   }
+  },
+  "Christopher6062B838": {
+   "Type": "AWS::IAM::User",
+   "Properties": {
+    "Groups": [
+     {
+      "Ref": "SolutionsArchitectGroup5790B83D"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "Department",
+      "Value": "Cloud Team"
+     }
+    ],
+    "UserName": "Christopher"
+   },
+   "Metadata": {
+    "aws:cdk:path": "UserProvisioningStack/Christopher/Resource"
+   }
+  },
+  "ChristopherMFADevice": {
+   "Type": "AWS::IAM::VirtualMFADevice",
+   "Properties": {
+    "Users": [
+     {
+      "Ref": "Christopher6062B838"
+     }
+    ],
+    "VirtualMfaDeviceName": "ChristopherMFA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "UserProvisioningStack/ChristopherMFADevice"
+   }
+  },
+  "Alfonso72D17F1B": {
+   "Type": "AWS::IAM::User",
+   "Properties": {
+    "Groups": [
+     {
+      "Ref": "SecurityEngineerGroup2BF06CE0"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "Department",
+      "Value": "Cloud Team"
+     }
+    ],
+    "UserName": "Alfonso"
+   },
+   "Metadata": {
+    "aws:cdk:path": "UserProvisioningStack/Alfonso/Resource"
+   }
+  },
+  "AlfonsoMFADevice": {
+   "Type": "AWS::IAM::VirtualMFADevice",
+   "Properties": {
+    "Users": [
+     {
+      "Ref": "Alfonso72D17F1B"
+     }
+    ],
+    "VirtualMfaDeviceName": "AlfonsoMFA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "UserProvisioningStack/AlfonsoMFADevice"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/zWIvQ6CMBCAn4W9PQVZHA1GJxOC0dXUcsaT0jP9kRDCu5sGnb6fAvJyC+tMDV7qtpOG7jCdg9KdUIO/kephOjqOb1E97CI1G9Jj6p9dPLqUf17JhajM6bDb44c0zmk26Dk6jckrti0FYjuLegxPtqsN5AWU2csTSRdtoB6hWfgFgjBxAqIAAAA="
+   },
+   "Metadata": {
+    "aws:cdk:path": "UserProvisioningStack/CDKMetadata/Default"
+   },
+   "Condition": "CDKMetadataAvailable"
+  }
+ },
+ "Conditions": {
+  "CDKMetadataAvailable": {
+   "Fn::Or": [
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "af-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ca-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-northwest-1"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-3"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "il-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "me-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "me-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "sa-east-1"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-west-2"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

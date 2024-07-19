@@ -1,0 +1,565 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "UserProvisioningStack": {
+        "id": "UserProvisioningStack",
+        "path": "UserProvisioningStack",
+        "children": {
+          "CloudAdminGroup": {
+            "id": "CloudAdminGroup",
+            "path": "UserProvisioningStack/CloudAdminGroup",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "UserProvisioningStack/CloudAdminGroup/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::IAM::Group",
+                  "aws:cdk:cloudformation:props": {
+                    "groupName": "CloudAdminGroup"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.CfnGroup",
+                  "version": "2.149.0"
+                }
+              },
+              "DefaultPolicy": {
+                "id": "DefaultPolicy",
+                "path": "UserProvisioningStack/CloudAdminGroup/DefaultPolicy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "UserProvisioningStack/CloudAdminGroup/DefaultPolicy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                      "aws:cdk:cloudformation:props": {
+                        "groups": [
+                          {
+                            "Ref": "CloudAdminGroup96F59727"
+                          }
+                        ],
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": [
+                                "ec2:*",
+                                "s3:*",
+                                "iam:*",
+                                "rds:*",
+                                "cloudwatch:*"
+                              ],
+                              "Effect": "Allow",
+                              "Resource": "*"
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "policyName": "CloudAdminGroupDefaultPolicy22046245"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                      "version": "2.149.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Policy",
+                  "version": "2.149.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_iam.Group",
+              "version": "2.149.0"
+            }
+          },
+          "DevOpsGroup": {
+            "id": "DevOpsGroup",
+            "path": "UserProvisioningStack/DevOpsGroup",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "UserProvisioningStack/DevOpsGroup/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::IAM::Group",
+                  "aws:cdk:cloudformation:props": {
+                    "groupName": "DevOpsGroup"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.CfnGroup",
+                  "version": "2.149.0"
+                }
+              },
+              "DefaultPolicy": {
+                "id": "DefaultPolicy",
+                "path": "UserProvisioningStack/DevOpsGroup/DefaultPolicy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "UserProvisioningStack/DevOpsGroup/DefaultPolicy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                      "aws:cdk:cloudformation:props": {
+                        "groups": [
+                          {
+                            "Ref": "DevOpsGroupCE482E01"
+                          }
+                        ],
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": [
+                                "codepipeline:*",
+                                "codebuild:*",
+                                "ecs:*",
+                                "cloudformation:*",
+                                "cloudwatch:*"
+                              ],
+                              "Effect": "Allow",
+                              "Resource": "*"
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "policyName": "DevOpsGroupDefaultPolicy203FA9DA"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                      "version": "2.149.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Policy",
+                  "version": "2.149.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_iam.Group",
+              "version": "2.149.0"
+            }
+          },
+          "SolutionsArchitectGroup": {
+            "id": "SolutionsArchitectGroup",
+            "path": "UserProvisioningStack/SolutionsArchitectGroup",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "UserProvisioningStack/SolutionsArchitectGroup/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::IAM::Group",
+                  "aws:cdk:cloudformation:props": {
+                    "groupName": "SolutionsArchitectGroup"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.CfnGroup",
+                  "version": "2.149.0"
+                }
+              },
+              "DefaultPolicy": {
+                "id": "DefaultPolicy",
+                "path": "UserProvisioningStack/SolutionsArchitectGroup/DefaultPolicy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "UserProvisioningStack/SolutionsArchitectGroup/DefaultPolicy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                      "aws:cdk:cloudformation:props": {
+                        "groups": [
+                          {
+                            "Ref": "SolutionsArchitectGroup5790B83D"
+                          }
+                        ],
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": [
+                                "ec2:*",
+                                "s3:*",
+                                "rds:*",
+                                "cloudfront:*",
+                                "lambda:*"
+                              ],
+                              "Effect": "Allow",
+                              "Resource": "*"
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "policyName": "SolutionsArchitectGroupDefaultPolicy14BFC438"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                      "version": "2.149.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Policy",
+                  "version": "2.149.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_iam.Group",
+              "version": "2.149.0"
+            }
+          },
+          "SecurityEngineerGroup": {
+            "id": "SecurityEngineerGroup",
+            "path": "UserProvisioningStack/SecurityEngineerGroup",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "UserProvisioningStack/SecurityEngineerGroup/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::IAM::Group",
+                  "aws:cdk:cloudformation:props": {
+                    "groupName": "SecurityEngineerGroup"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.CfnGroup",
+                  "version": "2.149.0"
+                }
+              },
+              "DefaultPolicy": {
+                "id": "DefaultPolicy",
+                "path": "UserProvisioningStack/SecurityEngineerGroup/DefaultPolicy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "UserProvisioningStack/SecurityEngineerGroup/DefaultPolicy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                      "aws:cdk:cloudformation:props": {
+                        "groups": [
+                          {
+                            "Ref": "SecurityEngineerGroup2BF06CE0"
+                          }
+                        ],
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": [
+                                "iam:*",
+                                "cloudtrail:*",
+                                "guardduty:*",
+                                "config:*",
+                                "kms:*"
+                              ],
+                              "Effect": "Allow",
+                              "Resource": "*"
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "policyName": "SecurityEngineerGroupDefaultPolicy62BC03D4"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                      "version": "2.149.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Policy",
+                  "version": "2.149.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_iam.Group",
+              "version": "2.149.0"
+            }
+          },
+          "David": {
+            "id": "David",
+            "path": "UserProvisioningStack/David",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "UserProvisioningStack/David/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::IAM::User",
+                  "aws:cdk:cloudformation:props": {
+                    "groups": [
+                      {
+                        "Ref": "CloudAdminGroup96F59727"
+                      }
+                    ],
+                    "tags": [
+                      {
+                        "key": "Department",
+                        "value": "Cloud Team"
+                      }
+                    ],
+                    "userName": "David"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.CfnUser",
+                  "version": "2.149.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_iam.User",
+              "version": "2.149.0"
+            }
+          },
+          "DavidMFADevice": {
+            "id": "DavidMFADevice",
+            "path": "UserProvisioningStack/DavidMFADevice",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::IAM::VirtualMFADevice",
+              "aws:cdk:cloudformation:props": {
+                "users": [
+                  {
+                    "Ref": "DavidAF9B4FCF"
+                  }
+                ],
+                "virtualMfaDeviceName": "DavidMFA"
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_iam.CfnVirtualMFADevice",
+              "version": "2.149.0"
+            }
+          },
+          "Chris": {
+            "id": "Chris",
+            "path": "UserProvisioningStack/Chris",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "UserProvisioningStack/Chris/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::IAM::User",
+                  "aws:cdk:cloudformation:props": {
+                    "groups": [
+                      {
+                        "Ref": "DevOpsGroupCE482E01"
+                      }
+                    ],
+                    "tags": [
+                      {
+                        "key": "Department",
+                        "value": "Cloud Team"
+                      }
+                    ],
+                    "userName": "Chris"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.CfnUser",
+                  "version": "2.149.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_iam.User",
+              "version": "2.149.0"
+            }
+          },
+          "ChrisMFADevice": {
+            "id": "ChrisMFADevice",
+            "path": "UserProvisioningStack/ChrisMFADevice",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::IAM::VirtualMFADevice",
+              "aws:cdk:cloudformation:props": {
+                "users": [
+                  {
+                    "Ref": "Chris151D0CEB"
+                  }
+                ],
+                "virtualMfaDeviceName": "ChrisMFA"
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_iam.CfnVirtualMFADevice",
+              "version": "2.149.0"
+            }
+          },
+          "Christopher": {
+            "id": "Christopher",
+            "path": "UserProvisioningStack/Christopher",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "UserProvisioningStack/Christopher/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::IAM::User",
+                  "aws:cdk:cloudformation:props": {
+                    "groups": [
+                      {
+                        "Ref": "SolutionsArchitectGroup5790B83D"
+                      }
+                    ],
+                    "tags": [
+                      {
+                        "key": "Department",
+                        "value": "Cloud Team"
+                      }
+                    ],
+                    "userName": "Christopher"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.CfnUser",
+                  "version": "2.149.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_iam.User",
+              "version": "2.149.0"
+            }
+          },
+          "ChristopherMFADevice": {
+            "id": "ChristopherMFADevice",
+            "path": "UserProvisioningStack/ChristopherMFADevice",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::IAM::VirtualMFADevice",
+              "aws:cdk:cloudformation:props": {
+                "users": [
+                  {
+                    "Ref": "Christopher6062B838"
+                  }
+                ],
+                "virtualMfaDeviceName": "ChristopherMFA"
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_iam.CfnVirtualMFADevice",
+              "version": "2.149.0"
+            }
+          },
+          "Alfonso": {
+            "id": "Alfonso",
+            "path": "UserProvisioningStack/Alfonso",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "UserProvisioningStack/Alfonso/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::IAM::User",
+                  "aws:cdk:cloudformation:props": {
+                    "groups": [
+                      {
+                        "Ref": "SecurityEngineerGroup2BF06CE0"
+                      }
+                    ],
+                    "tags": [
+                      {
+                        "key": "Department",
+                        "value": "Cloud Team"
+                      }
+                    ],
+                    "userName": "Alfonso"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.CfnUser",
+                  "version": "2.149.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_iam.User",
+              "version": "2.149.0"
+            }
+          },
+          "AlfonsoMFADevice": {
+            "id": "AlfonsoMFADevice",
+            "path": "UserProvisioningStack/AlfonsoMFADevice",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::IAM::VirtualMFADevice",
+              "aws:cdk:cloudformation:props": {
+                "users": [
+                  {
+                    "Ref": "Alfonso72D17F1B"
+                  }
+                ],
+                "virtualMfaDeviceName": "AlfonsoMFA"
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_iam.CfnVirtualMFADevice",
+              "version": "2.149.0"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "UserProvisioningStack/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "UserProvisioningStack/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.149.0"
+                }
+              },
+              "Condition": {
+                "id": "Condition",
+                "path": "UserProvisioningStack/CDKMetadata/Condition",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnCondition",
+                  "version": "2.149.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "BootstrapVersion": {
+            "id": "BootstrapVersion",
+            "path": "UserProvisioningStack/BootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.149.0"
+            }
+          },
+          "CheckBootstrapVersion": {
+            "id": "CheckBootstrapVersion",
+            "path": "UserProvisioningStack/CheckBootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnRule",
+              "version": "2.149.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.149.0"
+        }
+      },
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.3.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.149.0"
+    }
+  }
+}

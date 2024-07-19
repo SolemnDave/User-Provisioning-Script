@@ -1,0 +1,167 @@
+{
+  "version": "36.0.0",
+  "artifacts": {
+    "UserProvisioningStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "UserProvisioningStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "UserProvisioningStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "UserProvisioningStack.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/f5a6b03147985ad6139fdcece9c8747ecaf3fe6095b3356c46b2f9843e25d65b.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "UserProvisioningStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "UserProvisioningStack.assets"
+      ],
+      "metadata": {
+        "/UserProvisioningStack/CloudAdminGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudAdminGroup96F59727"
+          }
+        ],
+        "/UserProvisioningStack/CloudAdminGroup/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CloudAdminGroupDefaultPolicy22046245"
+          }
+        ],
+        "/UserProvisioningStack/DevOpsGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DevOpsGroupCE482E01"
+          }
+        ],
+        "/UserProvisioningStack/DevOpsGroup/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DevOpsGroupDefaultPolicy203FA9DA"
+          }
+        ],
+        "/UserProvisioningStack/SolutionsArchitectGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SolutionsArchitectGroup5790B83D"
+          }
+        ],
+        "/UserProvisioningStack/SolutionsArchitectGroup/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SolutionsArchitectGroupDefaultPolicy14BFC438"
+          }
+        ],
+        "/UserProvisioningStack/SecurityEngineerGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SecurityEngineerGroup2BF06CE0"
+          }
+        ],
+        "/UserProvisioningStack/SecurityEngineerGroup/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SecurityEngineerGroupDefaultPolicy62BC03D4"
+          }
+        ],
+        "/UserProvisioningStack/David/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DavidAF9B4FCF"
+          }
+        ],
+        "/UserProvisioningStack/DavidMFADevice": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DavidMFADevice"
+          }
+        ],
+        "/UserProvisioningStack/Chris/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Chris151D0CEB"
+          }
+        ],
+        "/UserProvisioningStack/ChrisMFADevice": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ChrisMFADevice"
+          }
+        ],
+        "/UserProvisioningStack/Christopher/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Christopher6062B838"
+          }
+        ],
+        "/UserProvisioningStack/ChristopherMFADevice": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ChristopherMFADevice"
+          }
+        ],
+        "/UserProvisioningStack/Alfonso/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Alfonso72D17F1B"
+          }
+        ],
+        "/UserProvisioningStack/AlfonsoMFADevice": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AlfonsoMFADevice"
+          }
+        ],
+        "/UserProvisioningStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/UserProvisioningStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/UserProvisioningStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/UserProvisioningStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "UserProvisioningStack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}
