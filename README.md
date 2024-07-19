@@ -95,3 +95,5 @@ The User Provisioning Script is an automated solution developed using the AWS CD
   ```bash
   cdk deploy
   ```
+
+Check out the Python Verson: https://github.com/SolemnDave/User-Provisioning-Script/tree/python
