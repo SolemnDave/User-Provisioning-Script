@@ -1,7 +1,0 @@
-[
-  {
-    "Source": "custom.iam",
-    "DetailType": "AWS API Call via CloudTrail",
-    "Detail": "{\"eventName\":\"AddUserToGroup\",\"requestParameters\":{\"userName\":\"testuser\",\"groupName\":\"CloudAdminGroup\"}}"
-  }
-]
